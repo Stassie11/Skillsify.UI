@@ -3,6 +3,8 @@ import './App.css';
 import Login from './pages/Login.js';
 import Register from './pages/Register.js';
 import Home from './pages/Home.js';
+import CoursesList from './pages/CoursesList.js'
+import Course from './pages/Course.js'
 import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
 function App() {
   return (
@@ -16,6 +18,8 @@ function App() {
       
       <Route path='/login' element={<Login/>}></Route>
       <Route path='/register' element={<Register/>}/>
+      <Route path='/allcourses' element={<CoursesList/>}/>
+      <Route path='/course' element={<Course/>}/>
       
     </Routes>
     </Router>
