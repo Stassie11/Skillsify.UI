@@ -24,9 +24,11 @@ export default function Home() {
                     <h1 className="block text-5xl font-playfair absolute top-16 left-32">faster</h1>
                         </div>
                         <div className="absolute top-80 right-44 text-3xl text-white flex space-x-4 m-4">
-                            <button className="block px-2 py-2 border-2 border-pinkcustom rounded-full bg-pinkcustom">Browse courses</button>
+                            <Link to='/allCourses'>
+                                <button className="block px-2 py-2 border-2 border-pinkcustom rounded-full bg-pinkcustom">Browse courses</button>
+                            </Link>
                         </div>
-        <img  className="absolute top-40 right-12 w-130 h-130" src={homeImage} alt="MobileImage" />
+        <img  className="absolute top-40 right-12 w-30 h-130" src={homeImage} alt="MobileImage" />
       </div>
         </div>
            
