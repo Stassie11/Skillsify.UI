@@ -28,7 +28,7 @@ export default function Home() {
                                 <button className="block px-2 py-2 border-2 border-pinkcustom rounded-full bg-pinkcustom">Browse courses</button>
                             </Link>
                         </div>
-        <img  className="absolute top-40 right-12 w-30 h-130" src={homeImage} alt="MobileImage" />
+        <img  className="absolute top-40 right-96 w-130 h-150" src={homeImage} alt="HomeImage" />
       </div>
         </div>
            
