@@ -17,6 +17,7 @@ module.exports = {
       darkgraycustom: '#7D9BBA',
       bluecustom: '#23A6F0',
       pinkcustom: '#BF50A7',
+      orange: '#FF7F50',
     },
     fontFamily: {
      oswald: "'Oswald', sans-serif",

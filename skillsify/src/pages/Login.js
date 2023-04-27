@@ -25,7 +25,7 @@ export default function Login() {
                     </div>
                     <div className="mt-6">
             <label for="password" className="block font-oswald text-left text-gray-800y">Password</label>
-            <input type="password" className="block w-full px-4 py-2 mt-2 text-purple-700 bg-whitecustomrounded-md"/>
+            <input type="password" className="block w-full px-4 py-2 mt-2 text-purple-700 bg-whitecustom rounded-md focus:border-purple-400 focus:ring-purple-300 focus:outline-none focus:ring focus:ring-opacity-40"/>
                     </div>
           <div className="mt-6">
             <button className="ml-48 rounded-full font-buttons rounded-3xl font-bold bg-graycustom w-15 px-4 py-2 tracking-wide text-whitecustom transition-colors duration-200 transform bg-purple-700 rounded-md hover:bg-purple-600 focus:outline-none focus:bg-purple-600">LOGIN</button>
