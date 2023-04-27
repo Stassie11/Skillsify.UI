@@ -64,8 +64,7 @@ export default function Course() {
         <div>
           <button className="inline-block rounded bg-bluecustom px-6 pb-2 pt-2 text-bold font-medium text-white mr-40 mb-10">Start Course</button>
         </div>
-</div>
-
+      </div>
     </div>
   );
 }
