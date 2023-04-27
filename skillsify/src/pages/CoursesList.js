@@ -106,43 +106,7 @@ export default function CoursesList() {
               </div>
             </div>
         </div>
-        <div
-          className="flex-1 mt-30 p-4"
-          style={{ width: "400px", height: "200px" }}
-        >
-          <div class="block rounded-lg bg-white">
-            <div class="relative overflow-hidden bg-pinkcustom">
-              <img
-                class="rounded-t-lg"
-                src="https://tecdn.b-cdn.net/img/new/standard/nature/186.jpg"
-                alt=""
-              />
-              <a href="#!">
-                <div class="absolute bottom-0 left-0 right-0 top-0 h-full w-full overflow-hidden bg-[hsla(0,0%,98%,0.15)] bg-fixed opacity-0 transition duration-300 ease-in-out hover:opacity-100"></div>
-              </a>
-            </div>
-            <div class="p-6">
-              <h5 class="mb-2 text-xl font-medium leading-tight text-neutral-800 dark:text-neutral-50">
-                Card title
-              </h5>
-              <p class="mb-4 text-base text-neutral-600 dark:text-neutral-200">
-                Some quick example text to build on the card title and make up
-                the bulk of the card's content.
-              </p>
-              <Link to="/course">
-                <button
-                  type="button"
-                  class="inline-block rounded bg-bluecustom px-6 pb-2 pt-2.5 text-xs font-medium uppercase text-white"
-                >
-                  Button
-                </button>
-              </Link>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  );
+    );
 }
 
-export { CoursesList };
+export {CoursesList}
