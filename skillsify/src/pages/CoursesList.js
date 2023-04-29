@@ -7,10 +7,44 @@ import { faStar } from '@fortawesome/free-solid-svg-icons'
 import { faDownload } from '@fortawesome/free-solid-svg-icons';
 import { faUser } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import {useState,useEffect} from 'react'
+
 
 library.add(faStar)
 
 export default function CoursesList() {
+
+  const [data, setData] = useState([])
+  const [response, setResponse] = useState()
+
+  const fetchData = () => {
+    return  fetch("http://localhost:8080/courses", {
+      method: "GET",
+      dataType: 'jsonp',
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json'
+     }
+      
+      }).then((response) => {
+        return response.json()
+     })
+      .then(data => {
+          console.log("server is up")
+          console.log(data)
+          setData(data)
+      })
+      .catch((error) => {
+        console.error('Error:', error);
+        console.log("server is down!!")   
+      });
+  }
+ 
+
+  useEffect(() => {
+    fetchData();
+    
+  },[])
     return (
         <div className="relative bg-lightgraycustom flex flex-col min-h-screen overflow-hidden">
             <img className="absolute p-0 left-10 w-60 h-36" src={logoImage} alt="LogoImage" />
@@ -27,84 +61,38 @@ export default function CoursesList() {
               <p className='mt-10'>Hi, username</p>
               <FontAwesomeIcon icon={faUser} className="text-lg mt-10" />
             </div>
-            <div className="p-4 bg-white rounded-xl mt-40 ml-64 mr-64 h-52">
-              <div className="border border-white rounded-lg overflow-hidden mt-62 h-40">
-                <div className="flex bg-white rounded-lg shadow-lg overflow-hidden">
-                  <div className="w-1/3">
-                    <img className="object-cover" src="https://upload.wikimedia.org/wikipedia/commons/4/49/A_black_image.jpg" alt=""/>
-                  </div>
-                  <div className="w-2/3 p-4">
-                    <h1 className="text-xl font-medium mb-2 ml-20">WEB DEVELOPMENT</h1>
-                    <h4 className='ml-20'>By Jane Cooper</h4>
-                    <div className="flex items-center mb-4 ml-20">
-                      <FontAwesomeIcon icon={faStar} className="text-orange mr-2" />
-                      <FontAwesomeIcon icon={faStar} className="text-orange mr-2" />
-                      <FontAwesomeIcon icon={faStar} className="text-orange mr-2" />
-                      <FontAwesomeIcon icon={faStar} className="text-orange mr-2" />
-                      <FontAwesomeIcon icon={faStar} className="text-orange mr-2" />
-                      <span className="text-gray-700">10 reviews</span>
-                    </div>
-                    <div className="flex items-center mb-4 ml-20">
-                      <FontAwesomeIcon icon={faDownload} />
-                      <span className="text-gray-700 ml-2">15 Sales</span>
-                      <button type="button" className="inline-block rounded bg-bluecustom px-6 pb-2 pt-2 text-bold font-medium text-white ml-auto"><Link to='/course'>View Course</Link></button>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div className="p-4 bg-white rounded-xl mt-12 ml-64 mr-64 h-52">
-              <div className="border border-white rounded-lg overflow-hidden mt-62 h-40">
-                <div className="flex bg-white rounded-lg shadow-lg overflow-hidden">
-                  <div className="w-1/3">
-                    <img className="object-cover" src="https://upload.wikimedia.org/wikipedia/commons/4/49/A_black_image.jpg" alt=""/>
-                  </div>
-                  <div className="w-2/3 p-4">
-                    <h1 className="text-xl font-medium mb-2 ml-20">WEB DEVELOPMENT</h1>
-                    <h4 className='ml-20'>By Jane Cooper</h4>
-                    <div className="flex items-center mb-4 ml-20">
-                      <FontAwesomeIcon icon={faStar} className="text-orange mr-2" />
-                      <FontAwesomeIcon icon={faStar} className="text-orange mr-2" />
-                      <FontAwesomeIcon icon={faStar} className="text-orange mr-2" />
-                      <FontAwesomeIcon icon={faStar} className="text-orange mr-2" />
-                      <FontAwesomeIcon icon={faStar} className="text-orange mr-2" />
-                      <span className="text-gray-700">10 reviews</span>
-                    </div>
-                    <div className="flex items-center mb-4 ml-20">
-                      <FontAwesomeIcon icon={faDownload} />
-                      <span className="text-gray-700 ml-2">15 Sales</span>
-                      <button type="button" className="inline-block rounded bg-bluecustom px-6 pb-2 pt-2 text-bold font-medium text-white ml-auto"><Link to='/course'>View Course</Link></button>
+            {data.map((x)=>(
+                    <div className="p-4 bg-white rounded-xl mt-40 ml-64 mr-64 h-52">
+                    <div className="border border-white rounded-lg overflow-hidden mt-62 h-40">
+                      <div className="flex bg-white rounded-lg shadow-lg overflow-hidden">
+                        <div className="w-1/3">
+                          <img className="object-cover" src="https://upload.wikimedia.org/wikipedia/commons/4/49/A_black_image.jpg" alt=""/>
+                        </div>
+                        <div className="w-2/3 p-4">
+                          <h1 className="text-xl font-medium mb-2 ml-20">{x.name}</h1>
+                          <h4 className='ml-20'>By {x.creator.firstName} {x.creator.lastName}</h4>
+                          <div className="flex items-center mb-4 ml-20">
+                            <FontAwesomeIcon icon={faStar} className="text-orange mr-2" />
+                            <FontAwesomeIcon icon={faStar} className="text-orange mr-2" />
+                            <FontAwesomeIcon icon={faStar} className="text-orange mr-2" />
+                            <FontAwesomeIcon icon={faStar} className="text-orange mr-2" />
+                            <FontAwesomeIcon icon={faStar} className="text-orange mr-2" />
+                            <span className="text-gray-700">10 reviews</span>
+                          </div>
+                          <div className="flex items-center mb-4 ml-20">
+                            <FontAwesomeIcon icon={faDownload} />
+                            <span className="text-gray-700 ml-2">15 Sales</span>
+                            <button type="button" 
+                            className="inline-block rounded bg-bluecustom 
+                            px-6 pb-2 pt-2 text-bold font-medium text-white ml-auto">
+                              <Link to={`/course/${x.id}`} 
+                            >View Course</Link></button>
+                          </div>
+                        </div>
+                      </div>
                     </div>
                   </div>
-                </div>
-              </div>
-            </div>
-            <div className="p-4 bg-white rounded-xl mt-12 ml-64 mr-64 h-52">
-              <div className="border border-white rounded-lg overflow-hidden mt-62 h-40">
-                <div className="flex bg-white rounded-lg shadow-lg overflow-hidden">
-                  <div className="w-1/3">
-                    <img className="object-cover" src="https://upload.wikimedia.org/wikipedia/commons/4/49/A_black_image.jpg" alt=""/>
-                  </div>
-                  <div className="w-2/3 p-4">
-                    <h1 className="text-xl font-medium mb-2 ml-20">WEB DEVELOPMENT</h1>
-                    <h4 className='ml-20'>By Jane Cooper</h4>
-                    <div className="flex items-center mb-4 ml-20">
-                      <FontAwesomeIcon icon={faStar} className="text-orange mr-2" />
-                      <FontAwesomeIcon icon={faStar} className="text-orange mr-2" />
-                      <FontAwesomeIcon icon={faStar} className="text-orange mr-2" />
-                      <FontAwesomeIcon icon={faStar} className="text-orange mr-2" />
-                      <FontAwesomeIcon icon={faStar} className="text-orange mr-2" />
-                      <span className="text-gray-700">10 reviews</span>
-                    </div>
-                    <div className="flex items-center mb-4 ml-20">
-                      <FontAwesomeIcon icon={faDownload} />
-                      <span className="text-gray-700 ml-2">15 Sales</span>
-                      <button type="button" className="inline-block rounded bg-bluecustom px-6 pb-2 pt-2 text-bold font-medium text-white ml-auto"><Link to='/course'>View Course</Link></button>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
+                    ))}
         </div>
     );
 }

@@ -3,14 +3,46 @@ import logoImage from "../images/logo.svg";
 import mobileImage from "../images/login illustration.svg";
 import online from "../images/100 online.svg";
 import level from "../images/level.svg";
-import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route, Link, useParams } from "react-router-dom";
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { faUser } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import {useState,useEffect} from 'react'
 
 library.add(faUser)
 
 export default function Course() {
+  const [data, setData] = useState([])
+  const { id } = useParams();
+
+  const fetchData = () => {
+    return  fetch(`http://localhost:8080/courses/${id}`, {
+      method: "GET",
+      dataType: 'jsonp',
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json'
+     }
+      
+      }).then((response) => {
+        return response.json()
+     })
+      .then(data => {
+          console.log("server is up")
+          console.log(data)
+          setData(data)
+      })
+      .catch((error) => {
+        console.error('Error:', error);
+        console.log("server is down!!")   
+      });
+  }
+ 
+
+  useEffect(() => {
+    fetchData();
+    
+  },[])
   return (
     <div className="relative bg-lightgraycustom flex flex-col min-h-screen overflow-hidden">
       <img className="absolute p-0 left-10 w-60 h-36" src={logoImage} alt="LogoImage"/>
@@ -30,7 +62,7 @@ export default function Course() {
       <div className="flex flex-col md:flex-row flex-1 p-6 md:p-12 bg-lightgraycustom rounded-xl mt-40">
         <img class="rounded-t-lg object-cover ml-10" src="https://upload.wikimedia.org/wikipedia/commons/4/49/A_black_image.jpg" alt="" style={{width: "500px", height: "400px"}}/>
         <div class="flex flex-col justify-start p-6">
-          <h1 class="mb-2 text-2xl font-bold ml-28" style={{fontSize:"36px"}}>Course Name</h1>
+          <h1 class="mb-2 text-2xl font-bold ml-28" style={{fontSize:"36px"}}>{data.name}</h1>
           <h3 class="mb-2 ml-28">Course Description: </h3>
           <p class="mb-4 text-base text-neutral-600 dark:text-neutral-200 ml-28 mr-28">
             Lorem ipsum dolor sit amet, consectetur
@@ -49,7 +81,7 @@ export default function Course() {
           </div>
           <div className="flex ml-28 mt-4">
             <img className="flex-none w-6 h-6" src={level} alt="level" style={{width:"50px", height:"50px"}}></img>
-            <h3 className="flex-none font-bold w-32 h-14 ml-6">Beginer level</h3>
+            <h3 className="flex-none font-bold w-32 h-14 ml-6">{data.skillRequired}</h3>
             <p class="text-sm mt-8 -ml-32">No previous knowledge needed.</p>
           </div>
         </div>
