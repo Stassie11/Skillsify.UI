@@ -33,10 +33,7 @@ export default function Home() {
         <img  class="illustration" src={homeImage} alt="HomeImage" />
       </div>
         </div>
-           
-        
-
-        
+    
     );
 }
 

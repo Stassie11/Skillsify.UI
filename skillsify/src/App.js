@@ -5,6 +5,7 @@ import Register from './pages/Register.js';
 import Home from './pages/Home.js';
 import CoursesList from './pages/CoursesList.js'
 import Course from './pages/Course.js'
+import Profile from './pages/Profile.js'
 import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
       <Route path='/register' element={<Register/>}/>
       <Route path='/allcourses' element={<CoursesList/>}/>
       <Route path='/course/:id' element={<Course/>}/>
+      <Route path='/profile' element={<Profile/>}></Route>
       
     </Routes>
     </Router>
