@@ -6,7 +6,9 @@ import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
 export default function Login() {
     return (
         <div className="relative flex flex-col bg-lightgraycustom min-h-screen overflow-hidden">
-            <img className="absolute p-0 left-10 w-60 h-36" src={logoImage} alt="LogoImage" />
+              <Link to='/home'>
+          <img className="absolute p-0 left-10 top-4 w-48 h-20" src={logoImage} alt="LogoImage" />
+          </Link>
             <div className="absolute top-0 right-0 flex space-x-4 m-4">
             <Link to='/login'>
                 <button className="block font-oswald text-right text-2xl px-4 py-4 mt-4">Login</button>
@@ -32,12 +34,15 @@ export default function Login() {
                 <p className="mt-8 text-xs font-lightgraycustom text-center">
                     {" "}
                     I don’t have an account ?{" "}
+                    <Link to='/register'>
                     <a
                         href="#"
                         className="font-medium text-graycustom hover:underline"
                     >
                         Sign up
                     </a>
+                    </Link>
+                    
                 </p>
             </div>
         </form>
