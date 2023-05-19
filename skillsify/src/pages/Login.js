@@ -2,6 +2,8 @@ import React from 'react';
 import logoImage from '../images/logo.svg';
 import mobileImage from '../images/login illustration.svg'
 import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
+import './Design.css';
+
 
 export default function Login() {
     return (
@@ -11,10 +13,10 @@ export default function Login() {
           </Link>
             <div className="absolute top-0 right-0 flex space-x-4 m-4">
             <Link to='/login'>
-                <button className="block font-oswald text-right text-2xl px-4 py-4 mt-4">Login</button>
+                <button className="block font-oswald text-right text-2xl px-4 py-4 mt-3">Login</button>
                 </Link>
                 <Link to='/register'>
-                <button className="block font-oswald text-right text-2xl px-4 py-4 border-2 border-black rounded-full bg-lightbluecustom mt-4">Register</button>
+                <button className="block font-oswald text-right text-2xl px-10 border-2 border-black rounded-full bg-lightbluecustom mt-7">Register</button>
                 </Link>
                     </div>
         <div className="flex flex-col md:flex-row flex-1 p-6 md:p-12 bg-white rounded-xl shadow-md mt-40 ml-20" style={{width: "600px", height: "400px"}}>
