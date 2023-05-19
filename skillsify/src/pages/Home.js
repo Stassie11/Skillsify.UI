@@ -11,6 +11,7 @@ export default function Home() {
     return (
         <div className="flex flex-col bg-lightgraycustom justify-center min-h-screen overflow-hidden">
           <div className="relative flex flex-col min-h-screen overflow-hidden">
+            
             <img className="absolute p-0 left-10 top-4 w-48 h-20" src={logoImage} alt="LogoImage" />
             <div className="absolute top-0 right-0 flex space-x-4 m-4">
             <Link to='/login'>
