@@ -54,12 +54,18 @@ export default function Profile() {
                         <div class="col-span-1 md:col-span-2 bg-white rounded-lg shadow-lg p-6">
                             <h2 class="text-2xl font-poppins font-bold text-left text-bluecustom ml-10 mt-4">Personal Details</h2>
                             <h2 class="text-2xl font-poppins font-bold text-right text-bluecustom mr-80 -mt-8">Courses</h2>
-                            <h3 class="font-poppins font-bold text-left text-darkgraycustom ml-12 mt-4">Name</h3>
-                            <h3 class="font-poppins font-bold text-right text-gray mr-80 -mt-6">Active</h3>
-                            <h3 class="font-poppins font-bold text-left  text-gray ml-12  mt-2">Jane Dpe</h3>
+                            <h3 class="font-poppins font-bold text-left text-darkgraycustom ml-12 mt-2">Name</h3>
+                            <h3 class="font-poppins font-bold text-right text-gray -mt-4" style={{marginRight:"150px"}}>
+                                <span class="border p-2 border-white rounded-full bg-lightgraycustom">Active<span class="ml-32 text-sm border border-black rounded-full p-1">2 courses</span></span>
+                            </h3>
+                            <button className="block font-oswald text-right text-bluecustom text-sm mt-2" style={{marginLeft:"730px"}}>View Courses</button>
+                            <h3 class="font-poppins font-bold text-left text-gray ml-12 -mt-6">Jane Dpe</h3>
                             <h3 class="font-poppins font-bold text-left text-darkgraycustom ml-12  mt-4">Gender</h3>
-                            <h3 class="font-poppins font-bold text-right text-gray mr-80 -mt-8">Finished</h3>
-                            <h3 class="font-poppins font-bold text-left  text-gray ml-12  mt-2">Female</h3>
+                            <h3 class="font-poppins font-bold text-right text-gray -mt-4" style={{marginRight:"135px"}}>
+                                <span class="border p-2 border-white rounded-full bg-lightgraycustom">Finished<span class="ml-32 text-sm border border-black rounded-full p-1">2 courses</span></span>
+                            </h3>
+                            <button className="block font-oswald text-right text-bluecustom text-sm mt-2" style={{marginLeft:"750px"}}>View Courses</button>
+                            <h3 class="font-poppins font-bold text-left  text-gray ml-12  -mt-6">Female</h3>
                             <h3 class="font-poppins font-bold text-left text-darkgraycustom ml-12 mt-4">Date of Birth</h3>
                             <h3 class="font-poppins font-bold text-left  text-gray ml-12  mt-2">August 27th, 1999</h3>
                             <h3 class="font-poppins font-bold text-left text-darkgraycustom ml-12  mt-4">Nationality</h3>
@@ -78,7 +84,6 @@ export default function Profile() {
                             <h3 class="font-poppins font-bold text-left  text-gray ml-12  mt-2">Value</h3>
                             <h3 class="font-poppins font-bold text-left text-darkgraycustom ml-12 mt-4">Country</h3>
                             <h3 class="font-poppins font-bold text-left  text-gray ml-12  mt-2">Value</h3>
-
                             <button className="inline-block rounded bg-bluecustom px-6 pb-2 pt-2 text-bold font-medium text-white" style={{marginLeft:"850px" }}>Edit</button>
                         </div>
                 </div>
