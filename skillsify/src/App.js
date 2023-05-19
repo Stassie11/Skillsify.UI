@@ -6,6 +6,7 @@ import Home from './pages/Home.js';
 import CoursesList from './pages/CoursesList.js'
 import Course from './pages/Course.js'
 import Profile from './pages/Profile.js'
+import StartCourse from './pages/StartCourse.js'
 import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
 function App() {
   return (
@@ -22,7 +23,7 @@ function App() {
       <Route path='/allcourses' element={<CoursesList/>}/>
       <Route path='/course/:id' element={<Course/>}/>
       <Route path='/profile' element={<Profile/>}></Route>
-      
+      <Route path='/startCourse' element={<StartCourse/>}></Route>
     </Routes>
     </Router>
   );
