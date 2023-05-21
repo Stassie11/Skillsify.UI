@@ -45,3 +45,84 @@ color: #FFFFFF;
     top:140px;
     left:650px;
 }
+
+.add-comment{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 13.9391px 13.94px 13.9391px 13.9391px;
+    position: absolute;
+    width: 560px;
+    height: 240px;
+    left: 772px;
+    top: 420px;
+    background: #FFFFFF;
+    border-radius:20.71711px;
+}
+
+.comment-input{
+    width: 500px;
+    border:solid 1.4px rgb(45, 104, 153);
+}
+
+.add-btn{
+    display: flex;
+    flex-direction: row;
+    gap: 3.72px;
+    width: 100.59px;
+    height: 30.43px;
+    background: #0089FF;border-radius:203.71711px;
+    flex:none;
+    margin-top: 5px;
+    padding-top: 1.5px;
+    align-content: center;
+    font-style: normal;
+    font-weight: 600;
+    font-size:20;
+    color: #FFFFFF;
+    padding-left: 22px;
+    margin-left: 390px;
+}
+.comment-input{
+    margin-left: 5px;
+}
+.courseProgressTrack{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 13.9391px 13.94px 13.9391px 13.9391px;
+    position: absolute;
+    width: 350px;
+    height: 270px;
+    left: 772px;
+    top: 130px;
+    background: #FFFFFF;
+    opacity: 0.74;
+    border-radius:20.71711px;
+}
+.progressDecor{
+    box-sizing: border-box;
+    position: absolute;
+    width: 67.79px;
+    height: 248.39px;
+    border: 2px dashed #7B61FF;
+    border-radius:20px;
+}
+.checkBoxContainer{
+    margin-left: 9px;
+    margin-top: 10px;
+  
+}
+.checkBoxContainer input{
+    width: 30px;
+    height: 30px;
+    border:1px solid #359EFF;
+    border-radius:50px;
+    margin-top: 18px;
+    margin:5px;
+    align-content: center;
+}
+.checkList{
+    padding-left: 80px;
+    padding-top: 12px;
+}

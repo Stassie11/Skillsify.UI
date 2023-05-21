@@ -4,15 +4,46 @@ import { BrowserRouter as Router, Routes, Route, Link, useParams } from "react-r
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faUser } from "@fortawesome/free-solid-svg-icons";
-
+import './Design.css';
 
 library.add(faUser)
 
+
+
+function handleSubmit(e) {
+    console.log('You clicked submit.');
+    const listObj={
+        id:'c',
+        comment:'Amazing'
+    }
+    list.push(listObj); 
+    console.log(list);
+  }
+
+function handleChange(e) {
+   
+}
+const checkList = ["Activity1", "Activity2", "Activity3", "Activity4" ];
+const list = [
+    {
+      id: 'a',
+      comment: 'Love it!',
+    },
+    {
+      id: 'b',
+      comment: 'Amazing!',
+
+    },
+  ];
+
 export default function StartCourse() {
+
+
+
     return (
 
         <div className="relative bg-lightgraycustom flex flex-col min-h-screen overflow-hidden">
-            <img className="absolute p-0 left-10 w-60 h-36" src={logoImage} alt="LogoImage"/>
+            <img className="absolute p-0 left-10 top-4 w-48 h-20" src={logoImage} alt="LogoImage"/>
             <div className="absolute top-0 right-0 flex space-x-4 m-4">
                 <form class="flex items-center border border-darkgraycustom rounded-lg w-96 mr-20 mt-10">
                     <label for="simple-search" class="sr-only">Search</label>
@@ -34,9 +65,49 @@ export default function StartCourse() {
                 <span class="text-black font-bold" style={{marginTop:"450px", marginLeft:"-134px"}}>See<span class="ml-1 text-black font-bold">transcription</span></span>
             
             </div>
+            <div className="courseProgressTrack">
+                <div className="progressDecor">
+                    {checkList.map((item, index) => (
+                    <div key={index} className="checkBoxContainer">
+                        <input  value={item} type="checkbox" />
+                    </div>
+                    ))}
+                </div>
+                    <div className="checkList">
+                        <div className="list-container">
+                        {checkList.map((item, index) => (
+                            <div key={index}>
+                            <span style={{ fontSize: 18 }}>{item}</span>
+                            <br></br>
+                            <span style={{ fontSize: 15 }}> Description</span>
+                            </div>
+                        ))}
+                    </div>
+                </div>
+            </div>
+            <div className="add-comment">
+                <h2 className="font-semibold p-1">Comments</h2>
+            <div className="profile-pic"></div>
+            <textarea className="comment-input" placeholder="Add a comment"  />
+            <ul>
+                {list.map(item => {
+                return (
+                    <li
+                    key={item.id}
+                    style={{ height: '40px', border: '1px solid black', width: '320px', margin:'10px', padding:'10px'}}>
+                    <div>{item.comment}</div>
+              
+                    </li>
+                );
+                })}
+            </ul>
+            <div className="send-btn-container">
+                <div className="profile-pic"></div>
+                <button className="add-btn" onClick={handleSubmit}>Submit</button>
+            </div>
+            </div>
             
         </div>
     );
 }
-
 export {StartCourse}
