@@ -6,7 +6,7 @@
 }
 
 .browse{
-    
+
 box-sizing: border-box;
 
 /* Auto layout */
@@ -45,3 +45,5 @@ color: #FFFFFF;
     top:140px;
     left:650px;
 }
+
+
