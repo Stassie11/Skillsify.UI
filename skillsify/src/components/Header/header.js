@@ -6,7 +6,7 @@ const header = (props) => {
     if(props.isUserLoggedIn){
         const username = props.userData.username;
             return(
-                <header className="header">
+                <header>
                     <a href={"/home"}>
                     <img className="absolute p-0 left-10 top-4 w-48 h-20" src={logoImage} alt="LogoImage" />
                     </a>
@@ -20,8 +20,10 @@ const header = (props) => {
             )
     }else{
         return(
-            <header className="header">
+            <header>
+                <a href={"/home"}>
                 <img className="absolute p-0 left-10 top-4 w-48 h-20" src={logoImage} alt="LogoImage"/>
+                </a>
                 <div className="absolute top-0 right-0 flex space-x-4 m-4">
                     <Link to='/login'>
                         <button className="block font-oswald text-right text-2xl px-4 py-4 mt-3">Login</button>

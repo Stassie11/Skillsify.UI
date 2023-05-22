@@ -6,7 +6,7 @@ import CoursesList from '../Course/CoursesList.js'
 import Course from '../Course/Course.js'
 import Profile from '../Account/Profile.js'
 import StartCourse from '../Course/StartCourse.js'
-import {BrowserRouter as Router, Routes, Route, Link} from 'react-router-dom';
+import { Routes, Route} from 'react-router-dom';
 import {Component} from "react";
 import skillsifyService from "../../Service/SkillsifyService";
 import Header from "../Header/header";
@@ -63,7 +63,6 @@ class App extends Component {
                     userData={this.state.userData}
                     logOutUser={this.logOutUser}
                 />
-            <Router>
                 <div className="App bg-whitecustom">
                 </div>
                 <Routes>
@@ -75,7 +74,6 @@ class App extends Component {
                     <Route path='/profile' element={<Profile/>}></Route>
                     <Route path='/startCourse' element={<StartCourse/>}></Route>
                 </Routes>
-            </Router>
             </div>
         )
     }
