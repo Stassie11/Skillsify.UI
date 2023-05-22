@@ -1,5 +1,5 @@
 import React from "react";
-import logoImage from "../images/logo.svg";
+import logoImage from "../../images/logo.svg";
 import { BrowserRouter as Router, Routes, Route, Link, useParams } from "react-router-dom";
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
@@ -32,9 +32,9 @@ export default function StartCourse() {
             </div>
                 <img className="rounded-t-lg object-cover -ml-28 mt-6" src="https://upload.wikimedia.org/wikipedia/commons/4/49/A_black_image.jpg" alt="" style={{width: "500px", height: "400px"}}/>
                 <span class="text-black font-bold" style={{marginTop:"450px", marginLeft:"-134px"}}>See<span class="ml-1 text-black font-bold">transcription</span></span>
-            
+
             </div>
-            
+
         </div>
     );
 }

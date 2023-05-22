@@ -1,52 +1,12 @@
-import React, {useEffect, useState} from 'react';
-import logoImage from '../images/logo.svg';
-import mobileImage from '../images/login illustration.svg'
+import React, {useState} from 'react';
+import logoImage from '../../images/logo.svg';
+import mobileImage from '../../images/login illustration.svg'
 import {BrowserRouter as Router, Routes, Route, Link, useNavigate} from 'react-router-dom';
 
-const AUTH_TOKEN = 'auth_token';
-const loggedInEmail = 'email';
-
-export default function Login() {
-
-    const history = useNavigate();
+export default function Login(props) {
 
     const [email, setEmail] = useState(null);
     const [password,setPassword] = useState(null);
-
-    const login = (email, password) => {
-        const data = {
-            email: email,
-            password: password
-        };
-
-        return fetch("http://localhost:8080/users/login", {
-            method: "POST",
-            dataType: 'jsonp',
-            headers: {
-                'Accept': 'application/json',
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify(data)
-        })
-            .then((response) => {
-                if (response.ok) {
-                    return response.json().then((data) => {
-                        localStorage.setItem(AUTH_TOKEN, data);
-                        localStorage.setItem(loggedInEmail, email);
-                        return data;
-                    });
-                } else if (response.status === 403) {
-                    throw new Error('Access Denied: Bad credentials');
-                } else {
-                    throw new Error('Error:', response.status);
-                }
-            })
-            .catch((error) => {
-                console.error('Error:', error);
-                console.log("Server is down!");
-            });
-    };
-
 
     const handleInputChange = (e) => {
         const {id , value} = e.target;
@@ -58,9 +18,9 @@ export default function Login() {
         }
     }
 
-    const handleSubmit = async () => {
-        login(email, password);
-        history('/home');
+    const onFormSubmit = (e) => {
+        e.preventDefault();
+        props.loginUser(email, password);
     }
 
     return (
@@ -77,18 +37,16 @@ export default function Login() {
                 </Link>
             </div>
             <div className="flex flex-col md:flex-row flex-1 p-6 md:p-12 bg-white rounded-xl shadow-md mt-40 ml-36" style={{width: "600px", height: "400px"}}>
-                <form className="flex-1 mt-30 p-4">
+                <form onSubmit={onFormSubmit} className="flex-1 mt-30 p-4">
                     <h1 className="text-4xl font-poppins font-bold text-left text-graycustom -mt-6">Skillsify</h1>
                     <h1 className="mt-5 text-left text-darkgraycustom">Welcome back!</h1>
                     <h1 className='text-5xl font-poppins font-bold text-left text-black mt-6'> Log in</h1>
                     <div className="mt-6">
                         <label for="email" className="block font-poppins text-left text-gray-800y">Email</label>
-                        <input type="email" className="block w-full px-4 py-2 mt-2 text-purple-700 bg-whitecustom rounded-md focus:border-purple-400 focus:ring-purple-300 focus:outline-none focus:ring focus:ring-opacity-40"/>
-                    </div>
+                        <input type="email"  id={"email"} value={email} onChange = {(e) => handleInputChange(e)} className="block w-full px-4 py-2 mt-2 text-purple-700 bg-whitecustom rounded-md focus:border-purple-400 focus:ring-purple-300 focus:outline-none focus:ring focus:ring-opacity-40" />                    </div>
                     <div className="mt-6">
                         <label for="password" className="block font-poppins text-left text-gray-800y">Password</label>
-                        <input type="password" className="block w-full px-4 py-2 mt-2 text-purple-700 bg-whitecustom rounded-md focus:border-purple-400 focus:ring-purple-300 focus:outline-none focus:ring focus:ring-opacity-40"/>
-                    </div>
+                        <input type="password"  id={"password"} value={password}  onChange = {(e) => handleInputChange(e)} className="block w-full px-4 py-2 mt-2 text-purple-700 bg-whitecustom rounded-md focus:border-purple-400 focus:ring-purple-300 focus:outline-none focus:ring focus:ring-opacity-40 form-control"  />                    </div>
                     <div className="mt-6">
                         <button className="ml-48 rounded-full font-buttons rounded-3xl font-bold bg-graycustom w-15 px-4 py-2 tracking-wide text-poppins text-whitecustom transition-colors duration-200 transform bg-purple-700 rounded-md hover:bg-purple-600 focus:outline-none focus:bg-purple-600">LOGIN</button>
                         <p className="mt-8 text-sm font-poppins text-darkgraycustom text-center">
