@@ -56,7 +56,7 @@ export default function Register(props) {
                     <button className="block font-oswald text-right text-2xl px-4 py-4 border-2 border-black rounded-full bg-lightbluecustom mt-4">Register</button>
                 </Link>
             </div>
-            <div className="flex flex-col md:flex-row flex-1 p-6 md:p-12 bg-white rounded-xl shadow-md mt-40 ml-36" style={{width: "600px", height: "400px"}}>
+            <div className="flex flex-col md:flex-row flex-1 p-6 md:p-12 bg-white rounded-xl shadow-md mt-40 ml-36" style={{width: "600px", maxHeight: "720px"}}>
                 <form onSubmit={onFormSubmit} className="flex-1 mt-30 p-4">
                     <h1 className="text-4xl font-poppins font-bold text-left text-graycustom -mt-6">Skillsify</h1>
                     <h1 className='text-5xl font-poppins font-bold text-left text-black mt-6'> Register</h1>
@@ -101,7 +101,7 @@ export default function Register(props) {
                         </p>
                     </div>
                  </form>
-                <img  className="absolute top-40 right-12 w-130 h-130" style={{marginRight:'170px', marginTop:'100px'}} src={mobileImage} alt="MobileImage" />
+                <img  className="absolute top-40 right-12 w-130 h-130 " style={{marginRight:'170px', marginTop:'100px'}} src={mobileImage} alt="MobileImage" />
             </div>
         </div>
     );
