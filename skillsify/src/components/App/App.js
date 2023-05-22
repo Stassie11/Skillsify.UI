@@ -5,11 +5,12 @@ import Home from '../Home/Home.js';
 import CoursesList from '../Course/CoursesList.js'
 import Course from '../Course/Course.js'
 import Profile from '../Account/Profile.js'
-import StartCourse from '../Course/StartCourse.js'
+import EnrollCourse from '../Course/EnrollCourse.js'
 import { Routes, Route} from 'react-router-dom';
 import {Component} from "react";
 import skillsifyService from "../../Service/SkillsifyService";
 import Header from "../Header/header";
+import ReviewsList from "../Review/ReviewsList";
 
 class App extends Component {
 
@@ -32,7 +33,7 @@ class App extends Component {
     }
     loginUser(email, password){
         skillsifyService.login(email, password).then(() => {
-            window.location.href = "/home";
+            window.location.href = "/courses";
         })
     }
 
@@ -55,6 +56,9 @@ class App extends Component {
         }
     }
 
+    loadCourses = () => {
+        return skillsifyService.getCourses();
+    }
     render() {
         return (
             <div>
@@ -69,10 +73,11 @@ class App extends Component {
                     <Route path='/home' element={<Home/>}></Route>
                     <Route path='/login' element={<Login loginUser = {this.loginUser}/>}></Route>
                     <Route path='/register' element={<Register registerUser = {this.registerUser}/>}/>
-                    <Route path='/allcourses' element={<CoursesList/>}/>
-                    <Route path='/course/:id' element={<Course/>}/>
-                    <Route path='/profile' element={<Profile/>}></Route>
-                    <Route path='/startCourse' element={<StartCourse/>}></Route>
+                    <Route path='/courses' element={<CoursesList courses = {this.loadCourses}/>}/>
+                    <Route path='/course/:id' element={<Course isUserLoggedIn={this.state.userLoggedIn}/>}/>
+                    <Route path='/profile' element={<Profile userData = {this.state.userData}/>}></Route>
+                    <Route path='/enroll-course' element={<EnrollCourse/>}></Route>
+                    <Route path='/reviews' element={<ReviewsList courses = {this.loadCourses}/>}></Route>
                 </Routes>
             </div>
         )

@@ -24,19 +24,7 @@ export default function Login(props) {
     }
 
     return (
-        <div className="relative flex flex-col bg-lightgraycustom min-h-screen overflow-hidden">
-            <Link to='/home'>
-                <img className="absolute p-0 left-10 top-4 w-48 h-20" src={logoImage} alt="LogoImage" />
-            </Link>
-            <div className="absolute top-0 right-0 flex space-x-4 m-4">
-                <Link to='/login'>
-                    <button className="block font-oswald text-right text-2xl px-4 py-4 mt-4">Login</button>
-                </Link>
-                <Link to='/register'>
-                    <button className="block font-oswald text-right text-2xl px-4 py-4 border-2 border-black rounded-full bg-lightbluecustom mt-4">Register</button>
-                </Link>
-            </div>
-            <div className="flex flex-col md:flex-row flex-1 p-6 md:p-12 bg-white rounded-xl shadow-md mt-40 ml-36" style={{width: "600px", maxHeight: "530px"}}>
+            <div className="flex flex-col md:flex-row flex-1 p-6 md:p-12 bg-white rounded-xl shadow-md mt-20 ml-60" style={{width: "600px", maxHeight: "530px"}}>
                 <form onSubmit={onFormSubmit} className="flex-1 mt-30 p-4">
                     <h1 className="text-4xl font-poppins font-bold text-left text-graycustom -mt-6">Skillsify</h1>
                     <h1 className="mt-5 text-left text-darkgraycustom">Welcome back!</h1>
@@ -64,7 +52,6 @@ export default function Login(props) {
                     </div>
                 </form>
                 <img  className="absolute top-40 right-12 w-130 h-130" style={{marginRight:'170px', marginTop:'100px'}} src={mobileImage} alt="MobileImage" />
-            </div>
         </div>
     );
 }

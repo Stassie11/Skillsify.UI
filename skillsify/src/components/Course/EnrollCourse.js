@@ -8,7 +8,7 @@ import { faUser } from "@fortawesome/free-solid-svg-icons";
 
 library.add(faUser)
 
-export default function StartCourse() {
+export default function EnrollCourse() {
     return (
 
         <div className="relative bg-lightgraycustom flex flex-col min-h-screen overflow-hidden">
@@ -39,4 +39,4 @@ export default function StartCourse() {
     );
 }
 
-export {StartCourse}
+export {EnrollCourse}

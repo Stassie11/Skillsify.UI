@@ -42,7 +42,7 @@ const skillsifyRepository = {
     },
     getCourseById(id) {
         return axios.get(`/courses/${id}`, ).then((response) => {
-            return response.json()
+            return response.data
         });
     },
     getCourses() {
