@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 import logoImage from '../../images/logo.svg';
-import mobileImage from '../../images/login illustration.svg'
+import mobileImage from '../../images/login illustration.svg';
 import {BrowserRouter as Router, Routes, Route, Link, useNavigate} from 'react-router-dom';
 
 

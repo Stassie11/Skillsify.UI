@@ -1,11 +1,11 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
-import { library } from '@fortawesome/fontawesome-svg-core'
-import {faStar, faUser} from '@fortawesome/free-solid-svg-icons'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import {useState,useEffect} from 'react'
-import skillsifyService from "../../Service/SkillsifyService";
+import { library } from '@fortawesome/fontawesome-svg-core';
+import {faStar, faUser} from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import {useState,useEffect} from 'react';
 import Rating from "../Rating/Rating";
+import course from "../../images/course.png";
 
 library.add(faStar)
 
@@ -15,7 +15,7 @@ export default function CoursesList(props) {
   const [response, setResponse] = useState()
 
   useEffect(() => {
-    props.loadCourses().then(data => {
+    props.courses().then(data => {
         console.log("server is up")
         console.log(data)
         setData(data)
@@ -32,8 +32,8 @@ export default function CoursesList(props) {
                     <div className="p-4 bg-white rounded-xl mt-10 ml-64 mr-64 h-22">
                     <div className="border border-white rounded-lg overflow-hidden mt-62 h-50">
                       <div className="flex bg-white rounded-lg shadow-lg overflow-hidden">
-                        <div className="w-1/3">
-                          <img className="object-cover" src="https://upload.wikimedia.org/wikipedia/commons/4/49/A_black_image.jpg" alt=""/>
+                        <div className="w-1/3 ml-10">
+                          <img className="w-48 h-45" src={course} alt=""/>
                         </div>
                         <div className="w-2/3 p-2 mt-5">
                           <h1 className="text-xl font-medium mb-2 ml-20">{x.name}</h1>
