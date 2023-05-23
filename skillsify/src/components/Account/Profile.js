@@ -8,7 +8,7 @@ library.add(faUser)
 export default function Profile(props) {
     return (
         <div className="relative bg-lightgraycustom flex flex-col min-h-screen overflow-hidden">
-            <div class="container mx-auto py-10 -ml-20" style={{marginTop: "10px"}}>
+            <div class="container mx-auto py-10" style={{marginTop:"10px", marginLeft:"-230px" }}>
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
                     <div class="hidden md:block md:col-span-1"></div>
                     <div class="col-span-1 md:col-span-2 bg-white rounded-lg shadow-lg p-6">

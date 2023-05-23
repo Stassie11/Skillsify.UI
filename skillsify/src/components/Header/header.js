@@ -31,15 +31,15 @@ const header = (props) => {
                     </Link>
                 </nav>
                 <div className="flex items-center justify-end space-x-4">
-          <span className="block font-oswald text-right text-2xl px-4 py-4 mt-0">
-            {username}
+          <span className="block font-oswald text-right text-2xl px-4 py-4 mt-0 -mr-5">
+            Hi, {username}
           </span>
                     <FontAwesomeIcon icon={faUser} className="text-lg mt-0" />
                     <button
                         onClick={() => {
                             props.logOutUser();
                         }}
-                        className="block font-oswald text-right text-2xl px-10 mt-0 border-2 border-black rounded-full bg-lightbluecustom mt-7"
+                        className="block font-oswald text-right text-2xl px-10 mt-0 border-2 border-black rounded-full bg-lightbluecustom"
                     >
                         Log out
                     </button>
@@ -70,7 +70,7 @@ const header = (props) => {
                         </button>
                     </Link>
                     <Link to="/register">
-                        <button className="block font-oswald text-right text-2xl px-3 py-3 mt-0 border-2 border-black rounded-full bg-lightbluecustom mt-7">
+                        <button className="block font-oswald text-right text-2xl px-3 py-3 mt-0 border-2 border-black rounded-full bg-lightbluecustom">
                             Register
                         </button>
                     </Link>
