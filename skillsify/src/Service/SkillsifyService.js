@@ -1,4 +1,4 @@
-import skillsifyRepository from '../Repository/SkillsifyRepository'
+import skillsifyRepository from '../Repository/SkillsifyRepository';
 
 const skillsifyService = {
 
