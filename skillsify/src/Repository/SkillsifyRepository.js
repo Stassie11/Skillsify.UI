@@ -49,6 +49,14 @@ const skillsifyRepository = {
         return axios.get('/courses', ).then((response) => {
             return response.data
         });
+    },
+    enrollUser(id){
+        return axios.post('/courses/enroll-user', {
+            "email" : localStorage.getItem(loggedInEmail),
+            "courseId": id
+        }).then((response) => {
+            return response.data
+        })
     }
 }
 
