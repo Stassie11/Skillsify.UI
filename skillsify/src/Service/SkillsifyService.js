@@ -24,6 +24,9 @@ const skillsifyService = {
     },
     getCourses() {
         return skillsifyRepository.getCourses();
+    },
+    enrollUser(id) {
+        return skillsifyRepository.enrollUser(id);
     }
 }
 export default skillsifyService;
